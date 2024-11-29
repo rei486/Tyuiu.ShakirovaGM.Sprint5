@@ -35,7 +35,7 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task2.V5.Lib
                 {
                     if (j!=cols-1)
                     {
-                        str = str + matrix[i,j]+",";
+                        str = str + matrix[i,j]+";";
                     }
                     else
                     {
