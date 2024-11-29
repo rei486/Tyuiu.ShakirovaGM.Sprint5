@@ -6,6 +6,7 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task0.V22.Lib
     {
         public string SaveToFileTextData(int x)
         {
+            //$@"{Directory.GetCurrentDirectory()}\OutPutFileTask0.txt"
             string path = Path.GetTempFileName();
             double z = (Math.Pow((1 - x), 2)) / (-3 * x);
             z = Math.Round(z, 3);
