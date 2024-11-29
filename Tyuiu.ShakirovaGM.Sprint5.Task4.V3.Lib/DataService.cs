@@ -7,7 +7,8 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task4.V3.Lib
         public double LoadFromDataFile(string path)
         {
             string strX=File.ReadAllText(path);
-            double res = Math.Round(Math.Pow((Convert.ToDouble(strX) - 1), (3 * Convert.ToDouble(strX) + 1)), 3);
+            double x = (double)Convert.ChangeType(strX, typeof(double));
+            double res = Math.Round(((Math.Sin(x)+4)/x-1.25*x),3);
             return res;
         }
     }
