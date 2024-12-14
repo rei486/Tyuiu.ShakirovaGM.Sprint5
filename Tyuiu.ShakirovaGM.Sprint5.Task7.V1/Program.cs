@@ -1,5 +1,6 @@
-﻿using Tyuiu.ShakirovaGM.Sprint5.Task5.V26.Lib;
-namespace Tyuiu.ShakirovaGM.Sprint5.Task5.V26
+﻿using Tyuiu.ShakirovaGM.Sprint5.Task7.V1.Lib;
+using System.IO;
+namespace Tyuiu.ShakirovaGM.Sprint5.Task7.V1
 {
     internal class Program
     {
@@ -27,14 +28,15 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task5.V26
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = $@"C:\DataSprint5\InPutDataFileTask5V26.txt";
+            string path = $@"C:\DataSprint5\InPutDataFileTask7V1.txt";
+            string pathSaveFile = $@"C:\DataSprint5\OutPutDataFileTask7V1.txt";
             Console.WriteLine(" Данные находятся в файле: " + path);
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            double res = ds.LoadFromDataFile(path);
-            Console.WriteLine(res);
+            pathSaveFile = ds.LoadDataAndSave(path);
+            Console.WriteLine(pathSaveFile);
 
             Console.ReadKey();
         }

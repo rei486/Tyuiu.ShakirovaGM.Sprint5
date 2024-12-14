@@ -5,9 +5,24 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task5.V26.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            string strX = File.ReadAllText(path);
-            double x = double.Parse(strX.Replace(".", ","));
-            double res = Math.Round(((Math.Sin(x) + 4) / x - 1.25 * x), 3);
+            
+            double summ = 0;
+            double sump = 0;
+           using (StreamReader reader= new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    double[] x = 
+                        double.Parse(line.Replace(".", ","));
+                    if (x % 2 == 0)
+                        sump += x;
+                    else
+                        summ += x;
+                }
+            }
+            double res = Math.Round(sump - summ, 3);
+            
             return res;
         }
     }
