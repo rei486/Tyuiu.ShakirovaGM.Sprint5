@@ -1,37 +1,34 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint5;
 using System.IO;
+using System.ComponentModel.Design;
 namespace Tyuiu.ShakirovaGM.Sprint5.Task7.V1.Lib
 {
     public class DataService : ISprint5Task7V1
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"C:\DataSprint5\OutPutDataFileTask7V1.txt";
-            FileInfo fileInfo = new FileInfo(pathSaveFile);
-            bool fileExists = fileInfo.Exists;
-            if (fileExists)
-            {
-                File.Delete(pathSaveFile);
-            }
+
+            string pathTransfer = File.ReadAllText(path);
+            string stringValues = pathTransfer;
+
             string strLine = "";
-            using (StreamReader reader = new StreamReader(path))
+            foreach (char c in stringValues)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                if (c >= '0' && c <= '9')
                 {
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        if ((line[i] != '0') && (line[i] != '1') && (line[i] != '2') && (line[i] != '3') && (line[i] != '4') && (line[i] != '5') && (line[i] != '6') && (line[i] != '7') && (line[i] != '8') && (line[i] != '9'))
-                        {
-                            strLine += line[i];
-                        }
-                    }
-                    File.AppendAllText(pathSaveFile,strLine+Environment.NewLine);
-                    strLine = "";
-               
+                    strLine += ' ';
+                }
+                else
+                {
+                    strLine += c;
                 }
             }
-            return pathSaveFile;
+            string outputFile = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V1.txt");
+            using (StreamWriter writer = new StreamWriter(outputFile))
+            {
+                writer.WriteLine(strLine);
+            }
+            return outputFile;
         }
     }
 }
