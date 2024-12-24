@@ -14,15 +14,12 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task7.V1.Lib
             string strLine = "";
             foreach (char c in stringValues)
             {
-                if (c >= '0' && c <= '9')
-                {
-                    strLine += ' ';
-                }
-                else
+                if (!char.IsDigit(c))
                 {
                     strLine += c;
                 }
             }
+           
             string outputFile = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V1.txt");
             using (StreamWriter writer = new StreamWriter(outputFile))
             {
