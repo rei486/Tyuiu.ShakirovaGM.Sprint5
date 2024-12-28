@@ -19,7 +19,7 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task7.V1.Lib
                     strLine += c;
                 }
             }
-           
+         
             string outputFile = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V1.txt");
             using (StreamWriter writer = new StreamWriter(outputFile))
             {

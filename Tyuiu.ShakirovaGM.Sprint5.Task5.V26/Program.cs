@@ -1,4 +1,5 @@
-﻿using Tyuiu.ShakirovaGM.Sprint5.Task5.V26.Lib;
+﻿using System.Globalization;
+using Tyuiu.ShakirovaGM.Sprint5.Task5.V26.Lib;
 namespace Tyuiu.ShakirovaGM.Sprint5.Task5.V26
 {
     internal class Program
@@ -27,14 +28,20 @@ namespace Tyuiu.ShakirovaGM.Sprint5.Task5.V26
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            string path = $@"C:\DataSprint5\InPutDataFileTask5V26.txt";
-            Console.WriteLine(" Данные находятся в файле: " + path);
+            string directory = @"C:\DataSprint5";
+            string fileName = "InPutDataFileTask5V26.txt";
+            string filePath = Path.Combine(directory, fileName);
+            Console.WriteLine(" Данные находятся в файле: " + filePath);
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            double res = ds.LoadFromDataFile(path);
-            Console.WriteLine(res);
+            double result = ds.LoadFromDataFile(filePath);
+
+            // Вывод результата
+            Console.WriteLine("                               РЕЗУЛЬТАТ:                                  ");
+            Console.WriteLine("***************************************************************************");
+            Console.WriteLine($"Разница между суммами положительных и отрицательных чисел: {result.ToString("F3", CultureInfo.InvariantCulture)}");
 
             Console.ReadKey();
         }
